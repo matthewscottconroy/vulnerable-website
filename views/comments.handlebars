@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comments</title>
+</head>
+<body>
+    <h1>Comments</h1>
+    <form action="/comments" method="POST">
+        <textarea name="comment" placeholder="Leave a comment"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+    <ul>
+        {{#each comments}}
+            <li>{{{this}}}</li> <!-- Using triple braces to simulate XSS vulnerability -->
+        {{/each}}
+    </ul>
+</body>
+</html>
+
